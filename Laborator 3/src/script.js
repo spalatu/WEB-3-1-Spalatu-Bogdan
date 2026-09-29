@@ -81,7 +81,6 @@ document.getElementById("btnModal").addEventListener("click", function () {
     gameScore.draws = 0;
     gameScore.displayScore();
 
-    // Ascundem imaginile pentru noul joc
     document.getElementById("imgJucator").style.display = "none";
     document.getElementById("imgCalculator").style.display = "none";
     document.getElementById("textJucator").textContent = "-";

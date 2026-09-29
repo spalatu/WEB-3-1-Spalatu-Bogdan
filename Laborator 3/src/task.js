@@ -7,8 +7,8 @@ console.log("Suma 2: ", calculateSum(42, 58));
 
 const student = {
     name: "Spalatu",
-    age: 18,
-    grade: 8,
+    age: 17,
+    grade: 11,
     introduce: function () {
         console.log("Sunt " + this.name + " și am " + this.age + " ani.");
     }
