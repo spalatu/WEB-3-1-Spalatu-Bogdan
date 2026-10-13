@@ -1,141 +1,139 @@
-let fructe = ["Măr", "Pară", "Banana", "Portocală", "Kiwi"];
+let legume = ["Morcov", "Ceapă", "Cartof", "Roșie", "Varză"];
 
-console.log("Lista:", fructe);
-console.log("Primul element:", fructe[0]);
-console.log("Ultimul element:", fructe[fructe.length - 1]);
-console.log("Număr de elemente:", fructe.length);
+console.log("Lista:", legume);
+console.log("Prima legumă:", legume[0]);
+console.log("Ultima legumă:", legume[legume.length - 1]);
+console.log("Câte legume sunt:", legume.length);
 
-let orase = ["Chișinău", "Bălți", "Cahul"];
+let localitati = ["Ungheni", "Edineț", "Comrat"];
 
-orase.push("Orhei");
-orase.unshift("Soroca");
-orase.pop();
-orase.shift();
+localitati.push("Strășeni");
+localitati.unshift("Florești");
+localitati.pop();
+localitati.shift();
 
-console.log("Lista finală de orașe:", orase);
+console.log("Lista finală de localități:", localitati);
 
-let produse = ["Pâine", "Lapte", "Ouă"];
+let cumparaturi = ["Zahăr", "Făină", "Unt"];
 
-function afiseazaProduse() {
-  let zona = document.getElementById("listaProduse");
+function arataCumparaturi() {
+  let containerLista = document.getElementById("listaCumparaturi");
 
-  if (produse.length === 0) {
-    zona.innerHTML = "Lista este goală!";
+  if (cumparaturi.length === 0) {
+    containerLista.innerHTML = "Lista este goală!";
   } else {
-    zona.innerHTML = produse.join(", ");
+    containerLista.innerHTML = cumparaturi.join(", ");
   }
 }
 
-function adaugaLaSfarsit() {
-  let produs = document.getElementById("produs").value;
-  if (produs !== "") {
-    produse.push(produs);
-    document.getElementById("produs").value = "";
-    afiseazaProduse();
+function adaugaLaFinal() {
+  let articol = document.getElementById("articol").value;
+  if (articol !== "") {
+    cumparaturi.push(articol);
+    document.getElementById("articol").value = "";
+    arataCumparaturi();
   }
 }
 
-function adaugaLaInceput() {
-  let produs = document.getElementById("produs").value;
-  if (produs !== "") {
-    produse.unshift(produs);
-    document.getElementById("produs").value = "";
-    afiseazaProduse();
+function adaugaLaStart() {
+  let articol = document.getElementById("articol").value;
+  if (articol !== "") {
+    cumparaturi.unshift(articol);
+    document.getElementById("articol").value = "";
+    arataCumparaturi();
   }
 }
 
-function stergePrimul() {
-  produse.shift();
-  afiseazaProduse();
+function eliminaPrimul() {
+  cumparaturi.shift();
+  arataCumparaturi();
 }
 
-function stergeUltimul() {
-  produse.pop();
-  afiseazaProduse();
+function eliminaUltimul() {
+  cumparaturi.pop();
+  arataCumparaturi();
 }
 
-let elevi = [
-  { nume: "Popescu Ana", varsta: 17, nota: 9 },
-  { nume: "Rusu Mihai", varsta: 18, nota: 8 },
-  { nume: "Ciobanu Maria", varsta: 17, nota: 10 }
+let grupa = [
+  { numeComplet: "Lungu Victor", anii: 16, mediaFinala: 7 },
+  { numeComplet: "Ababii Elena", anii: 19, mediaFinala: 9 },
+  { numeComplet: "Guzun Andrei", anii: 17, mediaFinala: 6 }
 ];
 
-function afiseazaElevi() {
-  let catalog = document.getElementById("catalog");
-  catalog.innerHTML = "";
+function arataGrupa() {
+  let tabel = document.getElementById("tabelGrupa");
+  tabel.innerHTML = "";
 
-  elevi.forEach(function (elev, index) {
-    catalog.innerHTML +=
-      "<p>" + (index + 1) + ". " + elev.nume + "<br>" + "Vârsta: " + elev.varsta + "<br>" +
-      "Nota: " + elev.nota + "</p>";
+  grupa.forEach(function (student, pozitie) {
+    tabel.innerHTML +=
+      "<p>" + (pozitie + 1) + ". " + student.numeComplet + "<br>" +
+      "Ani: " + student.anii + "<br>" +
+      "Media: " + student.mediaFinala + "</p>";
   });
 
-  document.getElementById("numarElevi").innerHTML =
-    "Număr de elevi: " + elevi.length;
+  document.getElementById("totalStudenti").innerHTML =
+    "Număr de studenți: " + grupa.length;
 }
 
-function adaugaElev() {
-  let nume = document.getElementById("nume").value;
-  let varstaValoare = document.getElementById("varsta").value;
-  let notaValoare = document.getElementById("nota").value;
+function adaugaStudent() {
+  let numeNou = document.getElementById("inputNume").value;
+  let anNou = document.getElementById("inputAn").value;
+  let mediaNoua = document.getElementById("inputMedia").value;
 
-  if (nume.trim() === "" || varstaValoare.trim() === "" || notaValoare.trim() === "") {
-    alert("Nu ați introdus toate datele, elevul nu poate fi adăugat.");
+  if (numeNou.trim() === "" || anNou.trim() === "" || mediaNoua.trim() === "") {
+    alert("Nu ați introdus toate datele, studentul nu poate fi adăugat.");
     return;
   }
 
-  let varsta = Number(varstaValoare);
-  let nota = Number(notaValoare);
-
-  let elevNou = {
-    nume: nume,
-    varsta: varsta,
-    nota: nota,
+  let studentNou = {
+    numeComplet: numeNou,
+    anii: Number(anNou),
+    mediaFinala: Number(mediaNoua),
   };
 
-  elevi.push(elevNou);
+  grupa.push(studentNou);
 
-  document.getElementById("nume").value = "";
-  document.getElementById("varsta").value = "";
-  document.getElementById("nota").value = "";
+  document.getElementById("inputNume").value = "";
+  document.getElementById("inputAn").value = "";
+  document.getElementById("inputMedia").value = "";
 
-  afiseazaElevi();
+  arataGrupa();
 }
 
-function stergeElev() {
-  let numeCautat = document.getElementById("numeSterge").value;
+function excludeStudent() {
+  let numeDeExclus = document.getElementById("inputExclude").value;
 
-  let elev = elevi.find(function (e) {
-    return e.nume === numeCautat;
+  let student = grupa.find(function (s) {
+    return s.numeComplet === numeDeExclus;
   });
 
-  if (elev !== undefined) {
-    let index = elevi.indexOf(elev);
-    elevi.splice(index, 1);
+  if (student !== undefined) {
+    let pozitie = grupa.indexOf(student);
+    grupa.splice(pozitie, 1);
   }
 
-  document.getElementById("numeSterge").value = "";
-  afiseazaElevi();
+  document.getElementById("inputExclude").value = "";
+  arataGrupa();
 }
 
-function cautaElev() {
-  let numeCautat = document.getElementById("numeCauta").value;
-  let rezultat = document.getElementById("rezultatCautare");
+function gasesteStudent() {
+  let numeCautat = document.getElementById("inputCauta").value;
+  let rezultat = document.getElementById("rezultatGasit");
 
-  let elev = elevi.find(function (e) {
-    return e.nume === numeCautat;
+  let student = grupa.find(function (s) {
+    return s.numeComplet === numeCautat;
   });
 
-  if (elev !== undefined) {
+  if (student !== undefined) {
     rezultat.innerHTML =
-      "Elev găsit!<br>" +
-      "Nume: " + elev.nume + "<br>" +
-      "Vârsta: " + elev.varsta + "<br>" +
-      "Nota: " + elev.nota;
+      "Student găsit!<br>" +
+      "Nume: " + student.numeComplet + "<br>" +
+      "Ani: " + student.anii + "<br>" +
+      "Media: " + student.mediaFinala;
   } else {
-    rezultat.innerHTML = "Elevul nu a fost găsit!";
+    rezultat.innerHTML = "Studentul nu a fost găsit!";
   }
 }
 
-afiseazaProduse();
-afiseazaElevi();
+arataCumparaturi();
+arataGrupa();
