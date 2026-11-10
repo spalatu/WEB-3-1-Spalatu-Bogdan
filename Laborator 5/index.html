@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 5</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <h1 class="app-title">Catalog Studenți</h1>
+        <p class="count-badge">Număr studenți: <span id="count">0</span></p>
+      </header>
+
+      <section class="board-section" aria-label="Container flexbox studenți">
+        <div id="studentList"></div>
+      </section>
+
+      <div id="select">
+        <form id="addElev" novalidate>
+          <h2 class="panel-title">Adăugare student</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label for="lastname">Nume</label>
+              <input placeholder="ex. Popescu" type="text" id="lastname" autocomplete="family-name">
+            </div>
+            <div class="field">
+              <label for="firstname">Prenume</label>
+              <input placeholder="ex. Ana" type="text" id="firstname" autocomplete="given-name">
+            </div>
+            <div class="field">
+              <label for="age">Vârstă</label>
+              <input placeholder="ex. 20" type="text" id="age" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="group">Clasă</label>
+              <input placeholder="ex. SI-231" type="text" id="group">
+            </div>
+            <div class="field field-full">
+              <label for="specialty">Specialitate</label>
+              <input placeholder="ex. Securitate informațională" type="text" id="specialty">
+            </div>
+          </div>
+          <button type="submit" id="addElevBtn">Elev +</button>
+          <p id="error" role="alert" aria-live="polite"></p>
+        </form>
+
+        <div id="styles">
+          <h2 class="panel-title">Proprietăți Flexbox</h2>
+          <div class="control-field">
+            <label for="justify-content">Justify-content</label>
+            <select id="justify-content">
+              <option value="flex-start">Flex-start</option>
+              <option value="center">Center</option>
+              <option value="flex-end">Flex-end</option>
+              <option value="space-between">Space-between</option>
+              <option value="space-around">Space-around</option>
+              <option value="space-evenly">Space-evenly</option>
+            </select>
+          </div>
+          <div class="control-field">
+            <label for="align-items">Align-items</label>
+            <select id="align-items">
+              <option value="stretch">Stretch</option>
+              <option value="flex-start">Flex-start</option>
+              <option value="center">Center</option>
+              <option value="flex-end">Flex-end</option>
+            </select>
+          </div>
+          <div class="flex">
+            <label for="wrap">Flex-wrap</label>
+            <input type="checkbox" id="wrap" checked>
+          </div>
+          <div class="flex gap-control">
+            <label for="numberIn">Gap (px)</label>
+            <div class="gap-input-wrap">
+              <input type="number" id="numberIn" value="16" min="0" max="100">
+              <input type="submit" id="submitNumber" value="Aplică">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
